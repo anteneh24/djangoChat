@@ -1,0 +1,26 @@
+{% extends 'core/base.html' %}
+
+{% block title %}Rooms | {% endblock %}
+
+{% block content %}
+<div class="p-10 lg:p-20 text-center">
+    <h1 class="text-3xl lg:text-6xl text-white">Create a New Room</h1>
+</div>
+
+<div class="w-full max-w-md mx-auto mt-10">
+    <form method="post" action="{% url 'create_room' %}" class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+        {% csrf_token %}
+        <div class="mb-4">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="room_name">
+                Room Name
+            </label>
+            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="room_name" name="room_name" type="text" placeholder="Enter room name">
+        </div>
+        <div class="flex items-center justify-between">
+            <button class="px-4 py-2 rounded text-white bg-teal-600 hover:bg-teal-700 focus:outline-none focus:shadow-outline" type="submit">
+                Create Room
+            </button>
+        </div>
+    </form>
+</div>
+{% endblock %}
